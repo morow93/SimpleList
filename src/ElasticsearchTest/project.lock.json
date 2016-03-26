@@ -3,6 +3,21 @@
   "version": 2,
   "targets": {
     "DNX,Version=v4.5.1": {
+      "Elasticsearch.Net/2.0.5": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/net45/Elasticsearch.Net.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Elasticsearch.Net.dll": {}
+        }
+      },
       "Microsoft.ApplicationInsights/1.1.1-beta": {
         "type": "package",
         "compile": {
@@ -1395,6 +1410,25 @@
           "lib/net451/Microsoft.Net.Http.Headers.dll": {}
         }
       },
+      "NEST/2.0.5": {
+        "type": "package",
+        "dependencies": {
+          "Elasticsearch.Net": "2.0.5",
+          "Newtonsoft.Json": "[8.0.0, 9.0.0)"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/net45/Nest.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Nest.dll": {}
+        }
+      },
       "Newtonsoft.Json/8.0.3": {
         "type": "package",
         "compile": {
@@ -1617,6 +1651,39 @@
       }
     },
     "DNXCore,Version=v5.0": {
+      "Elasticsearch.Net/2.0.5": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.CSharp": "4.0.1-beta-23225",
+          "System.Collections": "4.0.11-beta-23225",
+          "System.Collections.Concurrent": "4.0.10-beta-23109",
+          "System.Collections.Specialized": "4.0.0-beta-23109",
+          "System.ComponentModel.TypeConverter": "4.0.0-beta-23109",
+          "System.Diagnostics.Tools": "4.0.1-beta-23225",
+          "System.Dynamic.Runtime": "4.0.11-beta-23516",
+          "System.IO.Compression": "4.0.0-beta-23109",
+          "System.Linq": "4.0.0-beta-23109",
+          "System.Linq.Expressions": "4.0.10-beta-23109",
+          "System.Net.Http": "4.0.1-beta-23225",
+          "System.Net.Requests": "4.0.11-beta-23516",
+          "System.Reflection": "4.1.0-beta-23225",
+          "System.Reflection.Extensions": "4.0.0-beta-23109",
+          "System.Reflection.Metadata": "1.1.0-alpha-00009",
+          "System.Reflection.Primitives": "4.0.0-beta-23109",
+          "System.Reflection.TypeExtensions": "4.0.0-beta-23109",
+          "System.Runtime": "4.0.21-beta-23225",
+          "System.Runtime.Serialization.Primitives": "4.0.10-beta-23109",
+          "System.Security.Cryptography.Encoding": "4.0.0-beta-23225",
+          "System.Security.Cryptography.X509Certificates": "4.0.0-beta-23225",
+          "System.Text.RegularExpressions": "4.0.10-beta-23109"
+        },
+        "compile": {
+          "lib/dotnet5.1/Elasticsearch.Net.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet5.1/Elasticsearch.Net.dll": {}
+        }
+      },
       "Microsoft.ApplicationInsights/1.1.1-beta": {
         "type": "package",
         "dependencies": {
@@ -2920,6 +2987,28 @@
           "lib/DNXCore50/Microsoft.Win32.Registry.dll": {}
         }
       },
+      "NEST/2.0.5": {
+        "type": "package",
+        "dependencies": {
+          "Elasticsearch.Net": "2.0.5",
+          "Newtonsoft.Json": "[8.0.0, 9.0.0)",
+          "System.Collections": "4.0.11-beta-23225",
+          "System.Diagnostics.Tools": "4.0.1-beta-23225",
+          "System.Dynamic.Runtime": "4.0.11-beta-23516",
+          "System.Linq": "4.0.0-beta-23109",
+          "System.Linq.Expressions": "4.0.11-beta-23516",
+          "System.Linq.Queryable": "4.0.0-beta-23109",
+          "System.Runtime": "4.0.21-beta-23225",
+          "System.Threading": "4.0.11-beta-23225",
+          "System.Threading.Timer": "4.0.0-beta-23109"
+        },
+        "compile": {
+          "lib/dotnet5.1/Nest.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet5.1/Nest.dll": {}
+        }
+      },
       "Newtonsoft.Json/8.0.3": {
         "type": "package",
         "compile": {
@@ -2990,6 +3079,41 @@
         },
         "runtime": {
           "lib/dotnet/System.Collections.Immutable.dll": {}
+        }
+      },
+      "System.Collections.NonGeneric/4.0.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Diagnostics.Debug": "4.0.10",
+          "System.Globalization": "4.0.10",
+          "System.Resources.ResourceManager": "4.0.0",
+          "System.Runtime": "4.0.20",
+          "System.Runtime.Extensions": "4.0.10",
+          "System.Threading": "4.0.10"
+        },
+        "compile": {
+          "ref/dotnet/System.Collections.NonGeneric.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet/System.Collections.NonGeneric.dll": {}
+        }
+      },
+      "System.Collections.Specialized/4.0.0-beta-23109": {
+        "type": "package",
+        "dependencies": {
+          "System.Collections.NonGeneric": "4.0.0-beta-23109",
+          "System.Globalization": "4.0.10-beta-23109",
+          "System.Globalization.Extensions": "4.0.0-beta-23109",
+          "System.Resources.ResourceManager": "4.0.0-beta-23109",
+          "System.Runtime": "4.0.20-beta-23109",
+          "System.Runtime.Extensions": "4.0.10-beta-23109",
+          "System.Threading": "4.0.10-beta-23109"
+        },
+        "compile": {
+          "ref/dotnet/System.Collections.Specialized.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet/System.Collections.Specialized.dll": {}
         }
       },
       "System.ComponentModel/4.0.1-beta-23516": {
@@ -3215,18 +3339,24 @@
           "lib/DNXCore50/System.IO.dll": {}
         }
       },
-      "System.IO.Compression/4.0.0-beta-22816": {
+      "System.IO.Compression/4.0.0-beta-23109": {
         "type": "package",
         "dependencies": {
-          "System.IO": "4.0.10-beta-22816",
-          "System.Runtime": "4.0.20-beta-22816",
-          "System.Text.Encoding": "4.0.10-beta-22816"
+          "System.Collections": "4.0.0-beta-23109",
+          "System.IO": "4.0.0-beta-23109",
+          "System.Resources.ResourceManager": "4.0.0-beta-23109",
+          "System.Runtime": "4.0.0-beta-23109",
+          "System.Runtime.Extensions": "4.0.0-beta-23109",
+          "System.Runtime.InteropServices": "4.0.0-beta-23109",
+          "System.Text.Encoding": "4.0.0-beta-23109",
+          "System.Threading": "4.0.0-beta-23109",
+          "System.Threading.Tasks": "4.0.0-beta-23109"
         },
         "compile": {
-          "lib/contract/System.IO.Compression.dll": {}
+          "ref/dotnet/System.IO.Compression.dll": {}
         },
         "runtime": {
-          "lib/portable-wpa81+wp80+win80+net45+aspnetcore50/System.IO.Compression.dll": {}
+          "lib/dotnet/System.IO.Compression.dll": {}
         }
       },
       "System.IO.FileSystem/4.0.1-beta-23516": {
@@ -3290,20 +3420,49 @@
           "ref/dotnet5.4/System.Linq.Expressions.dll": {}
         }
       },
-      "System.Net.Http/4.0.0-beta-22816": {
+      "System.Linq.Queryable/4.0.0-beta-23109": {
         "type": "package",
         "dependencies": {
-          "System.IO": "4.0.10-beta-22816",
-          "System.Net.Primitives": "4.0.10-beta-22816",
-          "System.Runtime": "4.0.20-beta-22816",
-          "System.Text.Encoding": "4.0.10-beta-22816",
-          "System.Threading.Tasks": "4.0.10-beta-22816"
+          "System.Collections": "4.0.10-beta-23109",
+          "System.Linq": "4.0.0-beta-23109",
+          "System.Linq.Expressions": "4.0.10-beta-23109",
+          "System.Reflection": "4.0.10-beta-23109",
+          "System.Reflection.Extensions": "4.0.0-beta-23109",
+          "System.Resources.ResourceManager": "4.0.0-beta-23109",
+          "System.Runtime": "4.0.20-beta-23109"
         },
         "compile": {
-          "lib/contract/System.Net.Http.dll": {}
+          "ref/dotnet/System.Linq.Queryable.dll": {}
         },
         "runtime": {
-          "lib/portable-wpa81+wp80+win80+net45+aspnetcore50/System.Net.Http.dll": {}
+          "lib/dotnet/System.Linq.Queryable.dll": {}
+        }
+      },
+      "System.Net.Http/4.0.1-beta-23225": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Win32.Primitives": "4.0.0",
+          "System.Collections": "4.0.10",
+          "System.Diagnostics.Debug": "4.0.10",
+          "System.Globalization": "4.0.10",
+          "System.IO": "4.0.10",
+          "System.IO.Compression": "4.0.0",
+          "System.Net.Primitives": "4.0.10",
+          "System.Resources.ResourceManager": "4.0.0",
+          "System.Runtime": "4.0.20",
+          "System.Runtime.Extensions": "4.0.10",
+          "System.Runtime.Handles": "4.0.0",
+          "System.Runtime.InteropServices": "4.0.20",
+          "System.Security.Cryptography.X509Certificates": "4.0.0-beta-23225",
+          "System.Text.Encoding": "4.0.10",
+          "System.Threading": "4.0.0",
+          "System.Threading.Tasks": "4.0.10"
+        },
+        "compile": {
+          "ref/dotnet/System.Net.Http.dll": {}
+        },
+        "runtime": {
+          "lib/DNXCore50/System.Net.Http.dll": {}
         }
       },
       "System.Net.NameResolution/4.0.0-beta-23409": {
@@ -3325,6 +3484,34 @@
         },
         "compile": {
           "ref/dotnet5.4/System.Net.Primitives.dll": {}
+        }
+      },
+      "System.Net.Requests/4.0.11-beta-23516": {
+        "type": "package",
+        "dependencies": {
+          "System.IO": "4.0.0",
+          "System.Net.Primitives": "4.0.10",
+          "System.Net.WebHeaderCollection": "4.0.0",
+          "System.Runtime": "4.0.0",
+          "System.Threading.Tasks": "4.0.0"
+        },
+        "compile": {
+          "ref/dotnet5.4/System.Net.Requests.dll": {}
+        }
+      },
+      "System.Net.WebHeaderCollection/4.0.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Collections.NonGeneric": "4.0.0",
+          "System.Collections.Specialized": "4.0.0",
+          "System.Resources.ResourceManager": "4.0.0",
+          "System.Runtime": "4.0.20"
+        },
+        "compile": {
+          "ref/dotnet/System.Net.WebHeaderCollection.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet/System.Net.WebHeaderCollection.dll": {}
         }
       },
       "System.Net.WebSockets/4.0.0-beta-23516": {
@@ -3593,6 +3780,19 @@
         },
         "runtime": {
           "lib/DNXCore50/System.Runtime.Loader.dll": {}
+        }
+      },
+      "System.Runtime.Serialization.Primitives/4.0.10-beta-23109": {
+        "type": "package",
+        "dependencies": {
+          "System.Resources.ResourceManager": "4.0.0-beta-23109",
+          "System.Runtime": "4.0.20-beta-23109"
+        },
+        "compile": {
+          "ref/dotnet/System.Runtime.Serialization.Primitives.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet/System.Runtime.Serialization.Primitives.dll": {}
         }
       },
       "System.Security.Claims/4.0.1-beta-23516": {
@@ -3869,6 +4069,21 @@
       }
     },
     "DNX,Version=v4.5.1/win7-x86": {
+      "Elasticsearch.Net/2.0.5": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/net45/Elasticsearch.Net.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Elasticsearch.Net.dll": {}
+        }
+      },
       "Microsoft.ApplicationInsights/1.1.1-beta": {
         "type": "package",
         "compile": {
@@ -5264,6 +5479,25 @@
           "lib/net451/Microsoft.Net.Http.Headers.dll": {}
         }
       },
+      "NEST/2.0.5": {
+        "type": "package",
+        "dependencies": {
+          "Elasticsearch.Net": "2.0.5",
+          "Newtonsoft.Json": "[8.0.0, 9.0.0)"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/net45/Nest.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Nest.dll": {}
+        }
+      },
       "Newtonsoft.Json/8.0.3": {
         "type": "package",
         "compile": {
@@ -5486,6 +5720,21 @@
       }
     },
     "DNX,Version=v4.5.1/win7-x64": {
+      "Elasticsearch.Net/2.0.5": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/net45/Elasticsearch.Net.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Elasticsearch.Net.dll": {}
+        }
+      },
       "Microsoft.ApplicationInsights/1.1.1-beta": {
         "type": "package",
         "compile": {
@@ -6881,6 +7130,25 @@
           "lib/net451/Microsoft.Net.Http.Headers.dll": {}
         }
       },
+      "NEST/2.0.5": {
+        "type": "package",
+        "dependencies": {
+          "Elasticsearch.Net": "2.0.5",
+          "Newtonsoft.Json": "[8.0.0, 9.0.0)"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/net45/Nest.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Nest.dll": {}
+        }
+      },
       "Newtonsoft.Json/8.0.3": {
         "type": "package",
         "compile": {
@@ -7103,6 +7371,39 @@
       }
     },
     "DNXCore,Version=v5.0/win7-x86": {
+      "Elasticsearch.Net/2.0.5": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.CSharp": "4.0.1-beta-23225",
+          "System.Collections": "4.0.11-beta-23225",
+          "System.Collections.Concurrent": "4.0.10-beta-23109",
+          "System.Collections.Specialized": "4.0.0-beta-23109",
+          "System.ComponentModel.TypeConverter": "4.0.0-beta-23109",
+          "System.Diagnostics.Tools": "4.0.1-beta-23225",
+          "System.Dynamic.Runtime": "4.0.11-beta-23516",
+          "System.IO.Compression": "4.0.0-beta-23109",
+          "System.Linq": "4.0.0-beta-23109",
+          "System.Linq.Expressions": "4.0.10-beta-23109",
+          "System.Net.Http": "4.0.1-beta-23225",
+          "System.Net.Requests": "4.0.11-beta-23516",
+          "System.Reflection": "4.1.0-beta-23225",
+          "System.Reflection.Extensions": "4.0.0-beta-23109",
+          "System.Reflection.Metadata": "1.1.0-alpha-00009",
+          "System.Reflection.Primitives": "4.0.0-beta-23109",
+          "System.Reflection.TypeExtensions": "4.0.0-beta-23109",
+          "System.Runtime": "4.0.21-beta-23225",
+          "System.Runtime.Serialization.Primitives": "4.0.10-beta-23109",
+          "System.Security.Cryptography.Encoding": "4.0.0-beta-23225",
+          "System.Security.Cryptography.X509Certificates": "4.0.0-beta-23225",
+          "System.Text.RegularExpressions": "4.0.10-beta-23109"
+        },
+        "compile": {
+          "lib/dotnet5.1/Elasticsearch.Net.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet5.1/Elasticsearch.Net.dll": {}
+        }
+      },
       "Microsoft.ApplicationInsights/1.1.1-beta": {
         "type": "package",
         "dependencies": {
@@ -8409,6 +8710,28 @@
           "lib/DNXCore50/Microsoft.Win32.Registry.dll": {}
         }
       },
+      "NEST/2.0.5": {
+        "type": "package",
+        "dependencies": {
+          "Elasticsearch.Net": "2.0.5",
+          "Newtonsoft.Json": "[8.0.0, 9.0.0)",
+          "System.Collections": "4.0.11-beta-23225",
+          "System.Diagnostics.Tools": "4.0.1-beta-23225",
+          "System.Dynamic.Runtime": "4.0.11-beta-23516",
+          "System.Linq": "4.0.0-beta-23109",
+          "System.Linq.Expressions": "4.0.11-beta-23516",
+          "System.Linq.Queryable": "4.0.0-beta-23109",
+          "System.Runtime": "4.0.21-beta-23225",
+          "System.Threading": "4.0.11-beta-23225",
+          "System.Threading.Timer": "4.0.0-beta-23109"
+        },
+        "compile": {
+          "lib/dotnet5.1/Nest.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet5.1/Nest.dll": {}
+        }
+      },
       "Newtonsoft.Json/8.0.3": {
         "type": "package",
         "compile": {
@@ -8575,6 +8898,27 @@
         },
         "runtime": {
           "lib/DNXCore50/System.Net.Primitives.dll": {}
+        }
+      },
+      "runtime.win7.System.Net.Requests/4.0.11-beta-23516": {
+        "type": "package",
+        "dependencies": {
+          "System.Collections": "4.0.10",
+          "System.Diagnostics.Debug": "4.0.10",
+          "System.IO": "4.0.10",
+          "System.Net.Http": "4.0.0",
+          "System.Net.Primitives": "4.0.0",
+          "System.Net.WebHeaderCollection": "4.0.0",
+          "System.Resources.ResourceManager": "4.0.0",
+          "System.Runtime": "4.0.20",
+          "System.Threading": "4.0.10",
+          "System.Threading.Tasks": "4.0.10"
+        },
+        "compile": {
+          "ref/dotnet/_._": {}
+        },
+        "runtime": {
+          "runtimes/win7/lib/dotnet5.4/System.Net.Requests.dll": {}
         }
       },
       "runtime.win7.System.Private.Uri/4.0.1-beta-23516": {
@@ -8751,6 +9095,24 @@
         },
         "runtime": {
           "lib/dotnet/System.Collections.NonGeneric.dll": {}
+        }
+      },
+      "System.Collections.Specialized/4.0.0-beta-23109": {
+        "type": "package",
+        "dependencies": {
+          "System.Collections.NonGeneric": "4.0.0-beta-23109",
+          "System.Globalization": "4.0.10-beta-23109",
+          "System.Globalization.Extensions": "4.0.0-beta-23109",
+          "System.Resources.ResourceManager": "4.0.0-beta-23109",
+          "System.Runtime": "4.0.20-beta-23109",
+          "System.Runtime.Extensions": "4.0.10-beta-23109",
+          "System.Threading": "4.0.10-beta-23109"
+        },
+        "compile": {
+          "ref/dotnet/System.Collections.Specialized.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet/System.Collections.Specialized.dll": {}
         }
       },
       "System.ComponentModel/4.0.1-beta-23516": {
@@ -9004,18 +9366,30 @@
           "lib/DNXCore50/System.IO.dll": {}
         }
       },
-      "System.IO.Compression/4.0.0-beta-22816": {
+      "System.IO.Compression/4.0.0-beta-23109": {
         "type": "package",
         "dependencies": {
-          "System.IO": "4.0.10-beta-22816",
-          "System.Runtime": "4.0.20-beta-22816",
-          "System.Text.Encoding": "4.0.10-beta-22816"
+          "System.Collections": "4.0.0-beta-23109",
+          "System.IO": "4.0.0-beta-23109",
+          "System.Resources.ResourceManager": "4.0.0-beta-23109",
+          "System.Runtime": "4.0.0-beta-23109",
+          "System.Runtime.Extensions": "4.0.0-beta-23109",
+          "System.Runtime.InteropServices": "4.0.0-beta-23109",
+          "System.Text.Encoding": "4.0.0-beta-23109",
+          "System.Threading": "4.0.0-beta-23109",
+          "System.Threading.Tasks": "4.0.0-beta-23109"
         },
         "compile": {
-          "lib/contract/System.IO.Compression.dll": {}
+          "ref/dotnet/System.IO.Compression.dll": {}
         },
         "runtime": {
-          "lib/portable-wpa81+wp80+win80+net45+aspnetcore50/System.IO.Compression.dll": {}
+          "lib/dotnet/System.IO.Compression.dll": {}
+        }
+      },
+      "System.IO.Compression.clrcompression-x86/4.0.0-beta-23109": {
+        "type": "package",
+        "native": {
+          "runtimes/win7-x86/native/clrcompression.dll": {}
         }
       },
       "System.IO.FileSystem/4.0.1-beta-23516": {
@@ -9079,20 +9453,49 @@
           "ref/dotnet5.4/System.Linq.Expressions.dll": {}
         }
       },
-      "System.Net.Http/4.0.0-beta-22816": {
+      "System.Linq.Queryable/4.0.0-beta-23109": {
         "type": "package",
         "dependencies": {
-          "System.IO": "4.0.10-beta-22816",
-          "System.Net.Primitives": "4.0.10-beta-22816",
-          "System.Runtime": "4.0.20-beta-22816",
-          "System.Text.Encoding": "4.0.10-beta-22816",
-          "System.Threading.Tasks": "4.0.10-beta-22816"
+          "System.Collections": "4.0.10-beta-23109",
+          "System.Linq": "4.0.0-beta-23109",
+          "System.Linq.Expressions": "4.0.10-beta-23109",
+          "System.Reflection": "4.0.10-beta-23109",
+          "System.Reflection.Extensions": "4.0.0-beta-23109",
+          "System.Resources.ResourceManager": "4.0.0-beta-23109",
+          "System.Runtime": "4.0.20-beta-23109"
         },
         "compile": {
-          "lib/contract/System.Net.Http.dll": {}
+          "ref/dotnet/System.Linq.Queryable.dll": {}
         },
         "runtime": {
-          "lib/portable-wpa81+wp80+win80+net45+aspnetcore50/System.Net.Http.dll": {}
+          "lib/dotnet/System.Linq.Queryable.dll": {}
+        }
+      },
+      "System.Net.Http/4.0.1-beta-23225": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Win32.Primitives": "4.0.0",
+          "System.Collections": "4.0.10",
+          "System.Diagnostics.Debug": "4.0.10",
+          "System.Globalization": "4.0.10",
+          "System.IO": "4.0.10",
+          "System.IO.Compression": "4.0.0",
+          "System.Net.Primitives": "4.0.10",
+          "System.Resources.ResourceManager": "4.0.0",
+          "System.Runtime": "4.0.20",
+          "System.Runtime.Extensions": "4.0.10",
+          "System.Runtime.Handles": "4.0.0",
+          "System.Runtime.InteropServices": "4.0.20",
+          "System.Security.Cryptography.X509Certificates": "4.0.0-beta-23225",
+          "System.Text.Encoding": "4.0.10",
+          "System.Threading": "4.0.0",
+          "System.Threading.Tasks": "4.0.10"
+        },
+        "compile": {
+          "ref/dotnet/System.Net.Http.dll": {}
+        },
+        "runtime": {
+          "lib/DNXCore50/System.Net.Http.dll": {}
         }
       },
       "System.Net.NameResolution/4.0.0-beta-23409": {
@@ -9114,6 +9517,34 @@
         },
         "compile": {
           "ref/dotnet5.4/System.Net.Primitives.dll": {}
+        }
+      },
+      "System.Net.Requests/4.0.11-beta-23516": {
+        "type": "package",
+        "dependencies": {
+          "System.IO": "4.0.0",
+          "System.Net.Primitives": "4.0.10",
+          "System.Net.WebHeaderCollection": "4.0.0",
+          "System.Runtime": "4.0.0",
+          "System.Threading.Tasks": "4.0.0"
+        },
+        "compile": {
+          "ref/dotnet5.4/System.Net.Requests.dll": {}
+        }
+      },
+      "System.Net.WebHeaderCollection/4.0.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Collections.NonGeneric": "4.0.0",
+          "System.Collections.Specialized": "4.0.0",
+          "System.Resources.ResourceManager": "4.0.0",
+          "System.Runtime": "4.0.20"
+        },
+        "compile": {
+          "ref/dotnet/System.Net.WebHeaderCollection.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet/System.Net.WebHeaderCollection.dll": {}
         }
       },
       "System.Net.WebSockets/4.0.0-beta-23516": {
@@ -9429,6 +9860,19 @@
         },
         "runtime": {
           "lib/dotnet/System.Runtime.Numerics.dll": {}
+        }
+      },
+      "System.Runtime.Serialization.Primitives/4.0.10-beta-23109": {
+        "type": "package",
+        "dependencies": {
+          "System.Resources.ResourceManager": "4.0.0-beta-23109",
+          "System.Runtime": "4.0.20-beta-23109"
+        },
+        "compile": {
+          "ref/dotnet/System.Runtime.Serialization.Primitives.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet/System.Runtime.Serialization.Primitives.dll": {}
         }
       },
       "System.Security.Claims/4.0.1-beta-23516": {
@@ -9761,6 +10205,39 @@
       }
     },
     "DNXCore,Version=v5.0/win7-x64": {
+      "Elasticsearch.Net/2.0.5": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.CSharp": "4.0.1-beta-23225",
+          "System.Collections": "4.0.11-beta-23225",
+          "System.Collections.Concurrent": "4.0.10-beta-23109",
+          "System.Collections.Specialized": "4.0.0-beta-23109",
+          "System.ComponentModel.TypeConverter": "4.0.0-beta-23109",
+          "System.Diagnostics.Tools": "4.0.1-beta-23225",
+          "System.Dynamic.Runtime": "4.0.11-beta-23516",
+          "System.IO.Compression": "4.0.0-beta-23109",
+          "System.Linq": "4.0.0-beta-23109",
+          "System.Linq.Expressions": "4.0.10-beta-23109",
+          "System.Net.Http": "4.0.1-beta-23225",
+          "System.Net.Requests": "4.0.11-beta-23516",
+          "System.Reflection": "4.1.0-beta-23225",
+          "System.Reflection.Extensions": "4.0.0-beta-23109",
+          "System.Reflection.Metadata": "1.1.0-alpha-00009",
+          "System.Reflection.Primitives": "4.0.0-beta-23109",
+          "System.Reflection.TypeExtensions": "4.0.0-beta-23109",
+          "System.Runtime": "4.0.21-beta-23225",
+          "System.Runtime.Serialization.Primitives": "4.0.10-beta-23109",
+          "System.Security.Cryptography.Encoding": "4.0.0-beta-23225",
+          "System.Security.Cryptography.X509Certificates": "4.0.0-beta-23225",
+          "System.Text.RegularExpressions": "4.0.10-beta-23109"
+        },
+        "compile": {
+          "lib/dotnet5.1/Elasticsearch.Net.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet5.1/Elasticsearch.Net.dll": {}
+        }
+      },
       "Microsoft.ApplicationInsights/1.1.1-beta": {
         "type": "package",
         "dependencies": {
@@ -11067,6 +11544,28 @@
           "lib/DNXCore50/Microsoft.Win32.Registry.dll": {}
         }
       },
+      "NEST/2.0.5": {
+        "type": "package",
+        "dependencies": {
+          "Elasticsearch.Net": "2.0.5",
+          "Newtonsoft.Json": "[8.0.0, 9.0.0)",
+          "System.Collections": "4.0.11-beta-23225",
+          "System.Diagnostics.Tools": "4.0.1-beta-23225",
+          "System.Dynamic.Runtime": "4.0.11-beta-23516",
+          "System.Linq": "4.0.0-beta-23109",
+          "System.Linq.Expressions": "4.0.11-beta-23516",
+          "System.Linq.Queryable": "4.0.0-beta-23109",
+          "System.Runtime": "4.0.21-beta-23225",
+          "System.Threading": "4.0.11-beta-23225",
+          "System.Threading.Timer": "4.0.0-beta-23109"
+        },
+        "compile": {
+          "lib/dotnet5.1/Nest.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet5.1/Nest.dll": {}
+        }
+      },
       "Newtonsoft.Json/8.0.3": {
         "type": "package",
         "compile": {
@@ -11233,6 +11732,27 @@
         },
         "runtime": {
           "lib/DNXCore50/System.Net.Primitives.dll": {}
+        }
+      },
+      "runtime.win7.System.Net.Requests/4.0.11-beta-23516": {
+        "type": "package",
+        "dependencies": {
+          "System.Collections": "4.0.10",
+          "System.Diagnostics.Debug": "4.0.10",
+          "System.IO": "4.0.10",
+          "System.Net.Http": "4.0.0",
+          "System.Net.Primitives": "4.0.0",
+          "System.Net.WebHeaderCollection": "4.0.0",
+          "System.Resources.ResourceManager": "4.0.0",
+          "System.Runtime": "4.0.20",
+          "System.Threading": "4.0.10",
+          "System.Threading.Tasks": "4.0.10"
+        },
+        "compile": {
+          "ref/dotnet/_._": {}
+        },
+        "runtime": {
+          "runtimes/win7/lib/dotnet5.4/System.Net.Requests.dll": {}
         }
       },
       "runtime.win7.System.Private.Uri/4.0.1-beta-23516": {
@@ -11409,6 +11929,24 @@
         },
         "runtime": {
           "lib/dotnet/System.Collections.NonGeneric.dll": {}
+        }
+      },
+      "System.Collections.Specialized/4.0.0-beta-23109": {
+        "type": "package",
+        "dependencies": {
+          "System.Collections.NonGeneric": "4.0.0-beta-23109",
+          "System.Globalization": "4.0.10-beta-23109",
+          "System.Globalization.Extensions": "4.0.0-beta-23109",
+          "System.Resources.ResourceManager": "4.0.0-beta-23109",
+          "System.Runtime": "4.0.20-beta-23109",
+          "System.Runtime.Extensions": "4.0.10-beta-23109",
+          "System.Threading": "4.0.10-beta-23109"
+        },
+        "compile": {
+          "ref/dotnet/System.Collections.Specialized.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet/System.Collections.Specialized.dll": {}
         }
       },
       "System.ComponentModel/4.0.1-beta-23516": {
@@ -11662,18 +12200,30 @@
           "lib/DNXCore50/System.IO.dll": {}
         }
       },
-      "System.IO.Compression/4.0.0-beta-22816": {
+      "System.IO.Compression/4.0.0-beta-23109": {
         "type": "package",
         "dependencies": {
-          "System.IO": "4.0.10-beta-22816",
-          "System.Runtime": "4.0.20-beta-22816",
-          "System.Text.Encoding": "4.0.10-beta-22816"
+          "System.Collections": "4.0.0-beta-23109",
+          "System.IO": "4.0.0-beta-23109",
+          "System.Resources.ResourceManager": "4.0.0-beta-23109",
+          "System.Runtime": "4.0.0-beta-23109",
+          "System.Runtime.Extensions": "4.0.0-beta-23109",
+          "System.Runtime.InteropServices": "4.0.0-beta-23109",
+          "System.Text.Encoding": "4.0.0-beta-23109",
+          "System.Threading": "4.0.0-beta-23109",
+          "System.Threading.Tasks": "4.0.0-beta-23109"
         },
         "compile": {
-          "lib/contract/System.IO.Compression.dll": {}
+          "ref/dotnet/System.IO.Compression.dll": {}
         },
         "runtime": {
-          "lib/portable-wpa81+wp80+win80+net45+aspnetcore50/System.IO.Compression.dll": {}
+          "lib/dotnet/System.IO.Compression.dll": {}
+        }
+      },
+      "System.IO.Compression.clrcompression-x64/4.0.0-beta-23109": {
+        "type": "package",
+        "native": {
+          "runtimes/win7-x64/native/clrcompression.dll": {}
         }
       },
       "System.IO.FileSystem/4.0.1-beta-23516": {
@@ -11737,20 +12287,49 @@
           "ref/dotnet5.4/System.Linq.Expressions.dll": {}
         }
       },
-      "System.Net.Http/4.0.0-beta-22816": {
+      "System.Linq.Queryable/4.0.0-beta-23109": {
         "type": "package",
         "dependencies": {
-          "System.IO": "4.0.10-beta-22816",
-          "System.Net.Primitives": "4.0.10-beta-22816",
-          "System.Runtime": "4.0.20-beta-22816",
-          "System.Text.Encoding": "4.0.10-beta-22816",
-          "System.Threading.Tasks": "4.0.10-beta-22816"
+          "System.Collections": "4.0.10-beta-23109",
+          "System.Linq": "4.0.0-beta-23109",
+          "System.Linq.Expressions": "4.0.10-beta-23109",
+          "System.Reflection": "4.0.10-beta-23109",
+          "System.Reflection.Extensions": "4.0.0-beta-23109",
+          "System.Resources.ResourceManager": "4.0.0-beta-23109",
+          "System.Runtime": "4.0.20-beta-23109"
         },
         "compile": {
-          "lib/contract/System.Net.Http.dll": {}
+          "ref/dotnet/System.Linq.Queryable.dll": {}
         },
         "runtime": {
-          "lib/portable-wpa81+wp80+win80+net45+aspnetcore50/System.Net.Http.dll": {}
+          "lib/dotnet/System.Linq.Queryable.dll": {}
+        }
+      },
+      "System.Net.Http/4.0.1-beta-23225": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Win32.Primitives": "4.0.0",
+          "System.Collections": "4.0.10",
+          "System.Diagnostics.Debug": "4.0.10",
+          "System.Globalization": "4.0.10",
+          "System.IO": "4.0.10",
+          "System.IO.Compression": "4.0.0",
+          "System.Net.Primitives": "4.0.10",
+          "System.Resources.ResourceManager": "4.0.0",
+          "System.Runtime": "4.0.20",
+          "System.Runtime.Extensions": "4.0.10",
+          "System.Runtime.Handles": "4.0.0",
+          "System.Runtime.InteropServices": "4.0.20",
+          "System.Security.Cryptography.X509Certificates": "4.0.0-beta-23225",
+          "System.Text.Encoding": "4.0.10",
+          "System.Threading": "4.0.0",
+          "System.Threading.Tasks": "4.0.10"
+        },
+        "compile": {
+          "ref/dotnet/System.Net.Http.dll": {}
+        },
+        "runtime": {
+          "lib/DNXCore50/System.Net.Http.dll": {}
         }
       },
       "System.Net.NameResolution/4.0.0-beta-23409": {
@@ -11772,6 +12351,34 @@
         },
         "compile": {
           "ref/dotnet5.4/System.Net.Primitives.dll": {}
+        }
+      },
+      "System.Net.Requests/4.0.11-beta-23516": {
+        "type": "package",
+        "dependencies": {
+          "System.IO": "4.0.0",
+          "System.Net.Primitives": "4.0.10",
+          "System.Net.WebHeaderCollection": "4.0.0",
+          "System.Runtime": "4.0.0",
+          "System.Threading.Tasks": "4.0.0"
+        },
+        "compile": {
+          "ref/dotnet5.4/System.Net.Requests.dll": {}
+        }
+      },
+      "System.Net.WebHeaderCollection/4.0.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Collections.NonGeneric": "4.0.0",
+          "System.Collections.Specialized": "4.0.0",
+          "System.Resources.ResourceManager": "4.0.0",
+          "System.Runtime": "4.0.20"
+        },
+        "compile": {
+          "ref/dotnet/System.Net.WebHeaderCollection.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet/System.Net.WebHeaderCollection.dll": {}
         }
       },
       "System.Net.WebSockets/4.0.0-beta-23516": {
@@ -12087,6 +12694,19 @@
         },
         "runtime": {
           "lib/dotnet/System.Runtime.Numerics.dll": {}
+        }
+      },
+      "System.Runtime.Serialization.Primitives/4.0.10-beta-23109": {
+        "type": "package",
+        "dependencies": {
+          "System.Resources.ResourceManager": "4.0.0-beta-23109",
+          "System.Runtime": "4.0.20-beta-23109"
+        },
+        "compile": {
+          "ref/dotnet/System.Runtime.Serialization.Primitives.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet/System.Runtime.Serialization.Primitives.dll": {}
         }
       },
       "System.Security.Claims/4.0.1-beta-23516": {
@@ -12420,6 +13040,24 @@
     }
   },
   "libraries": {
+    "Elasticsearch.Net/2.0.5": {
+      "type": "package",
+      "sha512": "O1Thlen5rMsCEwXEPkzuvANlhk68KRCPP5uokPsZzcsS2+G1HkNg2QEEJyznbAIDRBNtC5BfbXCKbKhVT68h5w==",
+      "files": [
+        "Elasticsearch.Net.2.0.5.nupkg",
+        "Elasticsearch.Net.2.0.5.nupkg.sha512",
+        "Elasticsearch.Net.nuspec",
+        "lib/dotnet5.1/Elasticsearch.Net.dll",
+        "lib/dotnet5.1/Elasticsearch.Net.pdb",
+        "lib/dotnet5.1/Elasticsearch.Net.xml",
+        "lib/net45/Elasticsearch.Net.dll",
+        "lib/net45/Elasticsearch.Net.pdb",
+        "lib/net45/Elasticsearch.Net.xml",
+        "lib/net46/Elasticsearch.Net.dll",
+        "lib/net46/Elasticsearch.Net.pdb",
+        "lib/net46/Elasticsearch.Net.xml"
+      ]
+    },
     "Microsoft.ApplicationInsights/1.1.1-beta": {
       "type": "package",
       "sha512": "aqtQ8KNFMGBFCmU3kkkEM7PlyPFvfh/1uKTxixD+myMzB9EjYeGOf0LvFnpkT1sp3voXfU8MUN+eYets8TutdQ==",
@@ -13616,6 +14254,24 @@
         "ref/net46/Microsoft.Win32.Registry.dll"
       ]
     },
+    "NEST/2.0.5": {
+      "type": "package",
+      "sha512": "Y0Xs9FyxY6bn6eeJx/HOvwpsA34cx5Q0X/tLMHIjA6uFFLMZ+NWfmigmYWUSi5DBIIsW6QILQ+HSvyKY/D9Tvg==",
+      "files": [
+        "lib/dotnet5.1/Nest.dll",
+        "lib/dotnet5.1/Nest.pdb",
+        "lib/dotnet5.1/Nest.xml",
+        "lib/net45/Nest.dll",
+        "lib/net45/Nest.pdb",
+        "lib/net45/Nest.xml",
+        "lib/net46/Nest.dll",
+        "lib/net46/Nest.pdb",
+        "lib/net46/Nest.xml",
+        "NEST.2.0.5.nupkg",
+        "NEST.2.0.5.nupkg.sha512",
+        "NEST.nuspec"
+      ]
+    },
     "Newtonsoft.Json/8.0.3": {
       "type": "package",
       "sha512": "KGsYQdS2zLH+H8x2cZaSI7e+YZ4SFIbyy1YJQYl6GYBWjf5o4H1A68nxyq+WTyVSOJQ4GqS/DiPE+UseUizgMg==",
@@ -13774,6 +14430,19 @@
         "runtime.win7.System.Net.Primitives.4.0.11-beta-23516.nupkg.sha512",
         "runtime.win7.System.Net.Primitives.nuspec",
         "runtimes/win7/lib/netcore50/System.Net.Primitives.dll"
+      ]
+    },
+    "runtime.win7.System.Net.Requests/4.0.11-beta-23516": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "HI99nCEekL4SNvkLmpqkOE0PuEF5B6xyDcnJesdjo06BrGYH3QCvqJt2VmzBVe6hDSo6FnGOlhMvLdCUpDXiXA==",
+      "files": [
+        "ref/dotnet/_._",
+        "runtime.win7.System.Net.Requests.4.0.11-beta-23516.nupkg",
+        "runtime.win7.System.Net.Requests.4.0.11-beta-23516.nupkg.sha512",
+        "runtime.win7.System.Net.Requests.nuspec",
+        "runtimes/win7/lib/dotnet5.4/System.Net.Requests.dll",
+        "runtimes/win7/lib/net/_._"
       ]
     },
     "runtime.win7.System.Private.Uri/4.0.1-beta-23516": {
@@ -14104,6 +14773,30 @@
         "System.Collections.NonGeneric.4.0.0.nupkg",
         "System.Collections.NonGeneric.4.0.0.nupkg.sha512",
         "System.Collections.NonGeneric.nuspec"
+      ]
+    },
+    "System.Collections.Specialized/4.0.0-beta-23109": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sHMEvjfZcBO04aDflCBqbNSsrs7NgpkXO4gZN+yt80KMEQ3iWbeK5U8CbdtjDRePNZzoYf5K1mE1c+3RR03UGA==",
+      "files": [
+        "lib/dotnet/System.Collections.Specialized.dll",
+        "lib/net46/System.Collections.Specialized.dll",
+        "ref/dotnet/de/System.Collections.Specialized.xml",
+        "ref/dotnet/es/System.Collections.Specialized.xml",
+        "ref/dotnet/fr/System.Collections.Specialized.xml",
+        "ref/dotnet/it/System.Collections.Specialized.xml",
+        "ref/dotnet/ja/System.Collections.Specialized.xml",
+        "ref/dotnet/ko/System.Collections.Specialized.xml",
+        "ref/dotnet/ru/System.Collections.Specialized.xml",
+        "ref/dotnet/System.Collections.Specialized.dll",
+        "ref/dotnet/System.Collections.Specialized.xml",
+        "ref/dotnet/zh-hans/System.Collections.Specialized.xml",
+        "ref/dotnet/zh-hant/System.Collections.Specialized.xml",
+        "ref/net46/System.Collections.Specialized.dll",
+        "System.Collections.Specialized.4.0.0-beta-23109.nupkg",
+        "System.Collections.Specialized.4.0.0-beta-23109.nupkg.sha512",
+        "System.Collections.Specialized.nuspec"
       ]
     },
     "System.ComponentModel/4.0.1-beta-23516": {
@@ -15071,18 +15764,58 @@
         "System.IO.nuspec"
       ]
     },
-    "System.IO.Compression/4.0.0-beta-22816": {
+    "System.IO.Compression/4.0.0-beta-23109": {
       "type": "package",
-      "sha512": "XLIvFYkpjuAHSr9H7mjtv6sfv4kkSAWJ+ysVO4/KzCDRjYqs9Fl50PnuDkOfBJBoIf5BrWY+GF+4xj4WFBHb/Q==",
+      "serviceable": true,
+      "sha512": "kxDCzu/6/xGkpDk1Zk/NqbxngQd7B1fv53KlWutVBKWD/TwZOtGJbfDuW2eQ13IaYJAoqubMln902wICe2yzKg==",
       "files": [
-        "lib/aspnetcore50/System.IO.Compression.dll",
-        "lib/contract/System.IO.Compression.dll",
+        "lib/dotnet/System.IO.Compression.dll",
         "lib/net45/_._",
-        "lib/portable-wpa81+wp80+win80+net45+aspnetcore50/System.IO.Compression.dll",
-        "License.rtf",
-        "System.IO.Compression.4.0.0-beta-22816.nupkg",
-        "System.IO.Compression.4.0.0-beta-22816.nupkg.sha512",
+        "lib/netcore50/System.IO.Compression.dll",
+        "lib/win8/_._",
+        "lib/wpa81/_._",
+        "ref/dotnet/de/System.IO.Compression.xml",
+        "ref/dotnet/es/System.IO.Compression.xml",
+        "ref/dotnet/fr/System.IO.Compression.xml",
+        "ref/dotnet/it/System.IO.Compression.xml",
+        "ref/dotnet/ja/System.IO.Compression.xml",
+        "ref/dotnet/ko/System.IO.Compression.xml",
+        "ref/dotnet/ru/System.IO.Compression.xml",
+        "ref/dotnet/System.IO.Compression.dll",
+        "ref/dotnet/System.IO.Compression.xml",
+        "ref/dotnet/zh-hans/System.IO.Compression.xml",
+        "ref/dotnet/zh-hant/System.IO.Compression.xml",
+        "ref/net45/_._",
+        "ref/netcore50/System.IO.Compression.dll",
+        "ref/netcore50/System.IO.Compression.xml",
+        "ref/win8/_._",
+        "ref/wpa81/_._",
+        "runtime.json",
+        "System.IO.Compression.4.0.0-beta-23109.nupkg",
+        "System.IO.Compression.4.0.0-beta-23109.nupkg.sha512",
         "System.IO.Compression.nuspec"
+      ]
+    },
+    "System.IO.Compression.clrcompression-x64/4.0.0-beta-23109": {
+      "type": "package",
+      "sha512": "1Stn+qndkQzL+Ej31ZTbYp0vShkyWelnQZBA9e0+sN/or0js5WiD0b8PXeyf6O7O/5JmFkZTFYYmiF0qotkexQ==",
+      "files": [
+        "runtimes/win10-x64/native/ClrCompression.dll",
+        "runtimes/win7-x64/native/clrcompression.dll",
+        "System.IO.Compression.clrcompression-x64.4.0.0-beta-23109.nupkg",
+        "System.IO.Compression.clrcompression-x64.4.0.0-beta-23109.nupkg.sha512",
+        "System.IO.Compression.clrcompression-x64.nuspec"
+      ]
+    },
+    "System.IO.Compression.clrcompression-x86/4.0.0-beta-23109": {
+      "type": "package",
+      "sha512": "qlNN1b/+L1u29uOdk/OsQ0SHcS82jORlVOuqXDLv0fZa3aeiakrqI8mkx+hLm+0Z9WtrLXz5aMdfDjGM1LUmuw==",
+      "files": [
+        "runtimes/win10-x86/native/ClrCompression.dll",
+        "runtimes/win7-x86/native/clrcompression.dll",
+        "System.IO.Compression.clrcompression-x86.4.0.0-beta-23109.nupkg",
+        "System.IO.Compression.clrcompression-x86.4.0.0-beta-23109.nupkg.sha512",
+        "System.IO.Compression.clrcompression-x86.nuspec"
       ]
     },
     "System.IO.FileSystem/4.0.1-beta-23516": {
@@ -15316,17 +16049,56 @@
         "System.Linq.Expressions.nuspec"
       ]
     },
-    "System.Net.Http/4.0.0-beta-22816": {
+    "System.Linq.Queryable/4.0.0-beta-23109": {
       "type": "package",
-      "sha512": "zuqm/oV6ouUJSBTKhfjHC5JpzPyQolcJAAZt8Nly9ayetuuGBuDwTQ8YGtx1C4xNOWQOjL0vBVFu6EQT5e3SDA==",
+      "serviceable": true,
+      "sha512": "Mu6nIhw5k/zAMigeCh4aqma3kwXLoyPREVD6RxVPhGu2QJjAEeih0GWumoDjtdFp0B5Q6sYeakWDAds7NmzWQg==",
       "files": [
-        "lib/aspnetcore50/System.Net.Http.dll",
-        "lib/contract/System.Net.Http.dll",
+        "lib/dotnet/System.Linq.Queryable.dll",
         "lib/net45/_._",
-        "lib/portable-wpa81+wp80+win80+net45+aspnetcore50/System.Net.Http.dll",
-        "License.rtf",
-        "System.Net.Http.4.0.0-beta-22816.nupkg",
-        "System.Net.Http.4.0.0-beta-22816.nupkg.sha512",
+        "lib/netcore50/System.Linq.Queryable.dll",
+        "lib/win8/_._",
+        "lib/wp80/_._",
+        "lib/wpa81/_._",
+        "ref/dotnet/de/System.Linq.Queryable.xml",
+        "ref/dotnet/es/System.Linq.Queryable.xml",
+        "ref/dotnet/fr/System.Linq.Queryable.xml",
+        "ref/dotnet/it/System.Linq.Queryable.xml",
+        "ref/dotnet/ja/System.Linq.Queryable.xml",
+        "ref/dotnet/ko/System.Linq.Queryable.xml",
+        "ref/dotnet/ru/System.Linq.Queryable.xml",
+        "ref/dotnet/System.Linq.Queryable.dll",
+        "ref/dotnet/System.Linq.Queryable.xml",
+        "ref/dotnet/zh-hans/System.Linq.Queryable.xml",
+        "ref/dotnet/zh-hant/System.Linq.Queryable.xml",
+        "ref/net45/_._",
+        "ref/netcore50/System.Linq.Queryable.dll",
+        "ref/netcore50/System.Linq.Queryable.xml",
+        "ref/win8/_._",
+        "ref/wp80/_._",
+        "ref/wpa81/_._",
+        "System.Linq.Queryable.4.0.0-beta-23109.nupkg",
+        "System.Linq.Queryable.4.0.0-beta-23109.nupkg.sha512",
+        "System.Linq.Queryable.nuspec"
+      ]
+    },
+    "System.Net.Http/4.0.1-beta-23225": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "vr7kg18C/a+p3MzPIqRn2v0lIcvppuBtjFTiMRC571LAdnmllwLqdNFhwgi19x4z4dOdPfVMylZz9FWWGyWddg==",
+      "files": [
+        "lib/DNXCore50/System.Net.Http.dll",
+        "lib/net45/_._",
+        "lib/netcore50/System.Net.Http.dll",
+        "lib/win8/_._",
+        "lib/wpa81/_._",
+        "ref/dotnet/System.Net.Http.dll",
+        "ref/net45/_._",
+        "ref/netcore50/System.Net.Http.dll",
+        "ref/win8/_._",
+        "ref/wpa81/_._",
+        "System.Net.Http.4.0.1-beta-23225.nupkg",
+        "System.Net.Http.4.0.1-beta-23225.nupkg.sha512",
         "System.Net.Http.nuspec"
       ]
     },
@@ -15421,6 +16193,109 @@
         "System.Net.Primitives.4.0.11-beta-23516.nupkg",
         "System.Net.Primitives.4.0.11-beta-23516.nupkg.sha512",
         "System.Net.Primitives.nuspec"
+      ]
+    },
+    "System.Net.Requests/4.0.11-beta-23516": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "zbUdLNiGM7m0JgHcADonPXuz5DJq/WkK6NoHyQNkRt9dbBrYQ0CSg3PQX1qTLQyAuOKKhWOXuZ5gMyOA0t0AzA==",
+      "files": [
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net45/_._",
+        "lib/win8/_._",
+        "lib/wp80/_._",
+        "lib/wpa81/_._",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "ref/dotnet5.1/de/System.Net.Requests.xml",
+        "ref/dotnet5.1/es/System.Net.Requests.xml",
+        "ref/dotnet5.1/fr/System.Net.Requests.xml",
+        "ref/dotnet5.1/it/System.Net.Requests.xml",
+        "ref/dotnet5.1/ja/System.Net.Requests.xml",
+        "ref/dotnet5.1/ko/System.Net.Requests.xml",
+        "ref/dotnet5.1/ru/System.Net.Requests.xml",
+        "ref/dotnet5.1/System.Net.Requests.dll",
+        "ref/dotnet5.1/System.Net.Requests.xml",
+        "ref/dotnet5.1/zh-hans/System.Net.Requests.xml",
+        "ref/dotnet5.1/zh-hant/System.Net.Requests.xml",
+        "ref/dotnet5.2/de/System.Net.Requests.xml",
+        "ref/dotnet5.2/es/System.Net.Requests.xml",
+        "ref/dotnet5.2/fr/System.Net.Requests.xml",
+        "ref/dotnet5.2/it/System.Net.Requests.xml",
+        "ref/dotnet5.2/ja/System.Net.Requests.xml",
+        "ref/dotnet5.2/ko/System.Net.Requests.xml",
+        "ref/dotnet5.2/ru/System.Net.Requests.xml",
+        "ref/dotnet5.2/System.Net.Requests.dll",
+        "ref/dotnet5.2/System.Net.Requests.xml",
+        "ref/dotnet5.2/zh-hans/System.Net.Requests.xml",
+        "ref/dotnet5.2/zh-hant/System.Net.Requests.xml",
+        "ref/dotnet5.4/de/System.Net.Requests.xml",
+        "ref/dotnet5.4/es/System.Net.Requests.xml",
+        "ref/dotnet5.4/fr/System.Net.Requests.xml",
+        "ref/dotnet5.4/it/System.Net.Requests.xml",
+        "ref/dotnet5.4/ja/System.Net.Requests.xml",
+        "ref/dotnet5.4/ko/System.Net.Requests.xml",
+        "ref/dotnet5.4/ru/System.Net.Requests.xml",
+        "ref/dotnet5.4/System.Net.Requests.dll",
+        "ref/dotnet5.4/System.Net.Requests.xml",
+        "ref/dotnet5.4/zh-hans/System.Net.Requests.xml",
+        "ref/dotnet5.4/zh-hant/System.Net.Requests.xml",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net45/_._",
+        "ref/netcore50/de/System.Net.Requests.xml",
+        "ref/netcore50/es/System.Net.Requests.xml",
+        "ref/netcore50/fr/System.Net.Requests.xml",
+        "ref/netcore50/it/System.Net.Requests.xml",
+        "ref/netcore50/ja/System.Net.Requests.xml",
+        "ref/netcore50/ko/System.Net.Requests.xml",
+        "ref/netcore50/ru/System.Net.Requests.xml",
+        "ref/netcore50/System.Net.Requests.dll",
+        "ref/netcore50/System.Net.Requests.xml",
+        "ref/netcore50/zh-hans/System.Net.Requests.xml",
+        "ref/netcore50/zh-hant/System.Net.Requests.xml",
+        "ref/win8/_._",
+        "ref/wp80/_._",
+        "ref/wpa81/_._",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "runtime.json",
+        "System.Net.Requests.4.0.11-beta-23516.nupkg",
+        "System.Net.Requests.4.0.11-beta-23516.nupkg.sha512",
+        "System.Net.Requests.nuspec"
+      ]
+    },
+    "System.Net.WebHeaderCollection/4.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "IsIZAsHm/yK7R/XASnEc4EMffFLIMgYchG3/zJv6B4LwMnXZwrVlSPpNbPgEVb0lSXyztsn7A6sIPAACQQ2vTQ==",
+      "files": [
+        "lib/dotnet/System.Net.WebHeaderCollection.dll",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net46/_._",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "ref/dotnet/de/System.Net.WebHeaderCollection.xml",
+        "ref/dotnet/es/System.Net.WebHeaderCollection.xml",
+        "ref/dotnet/fr/System.Net.WebHeaderCollection.xml",
+        "ref/dotnet/it/System.Net.WebHeaderCollection.xml",
+        "ref/dotnet/ja/System.Net.WebHeaderCollection.xml",
+        "ref/dotnet/ko/System.Net.WebHeaderCollection.xml",
+        "ref/dotnet/ru/System.Net.WebHeaderCollection.xml",
+        "ref/dotnet/System.Net.WebHeaderCollection.dll",
+        "ref/dotnet/System.Net.WebHeaderCollection.xml",
+        "ref/dotnet/zh-hans/System.Net.WebHeaderCollection.xml",
+        "ref/dotnet/zh-hant/System.Net.WebHeaderCollection.xml",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net46/_._",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "System.Net.WebHeaderCollection.4.0.0.nupkg",
+        "System.Net.WebHeaderCollection.4.0.0.nupkg.sha512",
+        "System.Net.WebHeaderCollection.nuspec"
       ]
     },
     "System.Net.WebSockets/4.0.0-beta-23516": {
@@ -16435,6 +17310,30 @@
         "System.Runtime.Numerics.nuspec"
       ]
     },
+    "System.Runtime.Serialization.Primitives/4.0.10-beta-23109": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "Tr4N2JNBj0sM+apa0tMBXTI0yg8wlrWsiDHFtuPFQL+yiutGCgS8fyUcAYNUp4HccsD6leGT8D1N8+0/eMJQSQ==",
+      "files": [
+        "lib/dotnet/System.Runtime.Serialization.Primitives.dll",
+        "lib/net46/_._",
+        "ref/dotnet/de/System.Runtime.Serialization.Primitives.xml",
+        "ref/dotnet/es/System.Runtime.Serialization.Primitives.xml",
+        "ref/dotnet/fr/System.Runtime.Serialization.Primitives.xml",
+        "ref/dotnet/it/System.Runtime.Serialization.Primitives.xml",
+        "ref/dotnet/ja/System.Runtime.Serialization.Primitives.xml",
+        "ref/dotnet/ko/System.Runtime.Serialization.Primitives.xml",
+        "ref/dotnet/ru/System.Runtime.Serialization.Primitives.xml",
+        "ref/dotnet/System.Runtime.Serialization.Primitives.dll",
+        "ref/dotnet/System.Runtime.Serialization.Primitives.xml",
+        "ref/dotnet/zh-hans/System.Runtime.Serialization.Primitives.xml",
+        "ref/dotnet/zh-hant/System.Runtime.Serialization.Primitives.xml",
+        "ref/net46/_._",
+        "System.Runtime.Serialization.Primitives.4.0.10-beta-23109.nupkg",
+        "System.Runtime.Serialization.Primitives.4.0.10-beta-23109.nupkg.sha512",
+        "System.Runtime.Serialization.Primitives.nuspec"
+      ]
+    },
     "System.Security.Claims/4.0.1-beta-23516": {
       "type": "package",
       "serviceable": true,
@@ -17404,6 +18303,7 @@
       "Microsoft.Extensions.Logging >= 1.0.0-rc1-final",
       "Microsoft.Extensions.Logging.Console >= 1.0.0-rc1-final",
       "Microsoft.Extensions.Logging.Debug >= 1.0.0-rc1-final",
+      "NEST >= 2.0.5",
       "Newtonsoft.Json >= 8.0.3"
     ],
     "DNX,Version=v4.5.1": [],

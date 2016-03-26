@@ -9,6 +9,8 @@ namespace ElasticsearchTest.Services
 {
     public class Card
     {
+        public Card() { }
+
         public Card(Card card)
         {
             if (card != null)
@@ -32,15 +34,19 @@ namespace ElasticsearchTest.Services
     public class CardsService
     {
         private static List<Card> _cards = null;
+        private static SearchExecutor _searchExecutor = null;
         static CardsService()
         {
             var res = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText("cards.json"));
             _cards = res.Cards.ToList();
+
+            _searchExecutor = new SearchExecutor();
+            _cards.ForEach(c => _searchExecutor.AddOrUpdateIndex(c));
         }
                 
-        public List<Card> Cards()
+        public List<Card> Cards(String query)
         {
-            return _cards;
+            return _searchExecutor.Search(query);
         }
 
         public Card Get(Int32 id)
@@ -61,7 +67,9 @@ namespace ElasticsearchTest.Services
                 {
                     updateCard.Title = card.Title;
                     updateCard.Text = card.Text;
-                    return new Card(updateCard);
+                    var indexCard = new Card(updateCard);
+                    _searchExecutor.AddOrUpdateIndex(indexCard);
+                    return indexCard;
                 }
             }
             return null;
@@ -75,6 +83,7 @@ namespace ElasticsearchTest.Services
                 if (card != null)
                 {
                     _cards.Remove(card);
+                    _searchExecutor.Remove(id);
                     return new Card(card);
                 }
             }
@@ -93,7 +102,9 @@ namespace ElasticsearchTest.Services
                 card.Id = 1;
             }
             _cards.Add(card);
-            return new Card(card);
+            var indexCard = new Card(card);
+            _searchExecutor.AddOrUpdateIndex(indexCard);
+            return indexCard;
         }
     }
 }

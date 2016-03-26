@@ -20,7 +20,7 @@ namespace ElasticsearchTest.Controllers
         [HttpGet]
         public IEnumerable<Card> Get()
         {
-            return _service.Cards();
+            return _service.Cards("");
         }
 
         // GET api/values/5
@@ -37,11 +37,11 @@ namespace ElasticsearchTest.Controllers
             return _service.Add(card);
         }
 
-        // POST api/values/add
+        // POST api/values/search
         [HttpGet("search")]
         public IEnumerable<Card> Search(String query)
         {
-            return _service.Cards().Where(c => String.IsNullOrWhiteSpace(query) || c.Title.ToLower().StartsWith(query.ToLower()));
+            return _service.Cards(query);
         }
 
         // POST api/values/update
