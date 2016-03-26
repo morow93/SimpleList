@@ -1,0 +1,19 @@
+﻿{
+  "cards": [
+    {
+      "id": "1",
+      "title": "Card #1",
+      "text": "There are two ways to think about a request to delete a non-existent resource"
+    },
+    {
+      "id": "2",
+      "title": "Card #2",
+      "text": "The JSON format is syntactically identical to the code for creating JavaScript objects."
+    },
+    {
+      "id": "3",
+      "title": "Card #3",
+      "text": "Elasticsearch requires at least Java 7. Specifically as of this writing, it is recommended that you use the Oracle JDK version 1.8.0_72."
+    }
+  ]
+}

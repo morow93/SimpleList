@@ -1,0 +1,141 @@
+<!doctype html>
+<html ng-app="TestApp">
+    <head>
+        <!--<base href="/">-->
+        <meta name="name" content="content" charset="utf-8">
+        <link href="css/bootstrap.css" rel="stylesheet" />
+        <link href="css/styles.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <script src="/node_modules/lodash/lodash.js"></script>
+        <script src="/node_modules/angular/angular.js"></script>
+        <script src="node_modules/angular-animate/angular-animate.js"></script>
+        <script src="/node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+        <script src="/node_modules/moment/moment.js"></script>        
+        <script src="app/app.module.js"></script>
+        <script src="app/core/core.module.js"></script>
+        <script src="app/blocks/blocks.module.js"></script>
+        <script src="app/blocks/services/services.module.js"></script>
+        <script src="app/blocks/router/router.module.js"></script>
+        <script src="app/blocks/helpers/helpers.module.js"></script>
+        <script src="app/blocks/constants/constants.module.js"></script>
+        <script src="app/components/components.module.js"></script>
+        <script src="app/widgets/widgets.module.js"></script>
+        <script src="app/blocks/constants/constants.service.js"></script>
+        <script src="app/blocks/helpers/helper.service.js"></script>
+        <script src="app/blocks/router/apilist.service.js"></script>
+        <script src="app/blocks/services/test.service.js"></script>
+        <script src="app/core/core.controller.js"></script>
+        <script src="app/widgets/widgets.config.js"></script>
+    </head>
+    <body ng-controller="CoreController as cc">
+        <div class="wrapper">
+            <div class="content col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12">
+                
+                <div class="up-item">
+                    <div class="search-left">
+                        <input type="text" 
+                               class="form-control box" 
+                               placeholder="Search" 
+                               ng-change="cc.search()" 
+                               ng-model="cc.query" />
+                    </div>
+                    <div class="search-right">
+                        <a href="javascript:void(0);" ng-click="cc.startAdd()">
+                            <i class="fa fa-plus-circle fa-3x"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="item" ng-if="cc.showForm">
+                    <div class="item-head item-head-new">
+                        <div class="title">NEW</div>
+                    </div>
+                    <div class="item-body">
+                        <form name="newCard">
+                            <input type="text"
+                                   class="form-control"
+                                   placeholder="Input title"
+                                   ng-model="cc.card.title"
+                                   ng-maxlength="50"
+                                   required />
+                            <input type="text"
+                                   class="form-control"
+                                   placeholder="Input some text"
+                                   ng-model="cc.card.text"
+                                   ng-maxlength="500"
+                                   required />
+                        </form>
+                    </div>
+                    <div class="icons">
+                        <a href="javascript:void(0);" ng-click="cc.applyAdd(newCard)">
+                            <i class="fa fa-check fa-2x"></i>
+                        </a>
+                        <a href="javascript:void(0);" ng-click="cc.rejectAdd()">
+                            <i class="fa fa-times fa-2x"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div ng-repeat="card in cc.cards | orderBy :'-id'">
+                    <div class="item" ng-if="!card.editable">
+                        <div class="item-head">
+                            <div class="title">READ</div>
+                        </div>
+                        <div class="item-body">
+                            <div class="title" ng-bind="card.title"></div>
+                            <div class="title" ng-bind="card.text"></div>
+                        </div>
+                        <div class="icons">
+                            <a href="javascript:void(0);" ng-click="cc.startEdit(card)">
+                                <i class="fa fa-pencil-square-o fa-2x"></i>
+                            </a>
+                            <a href="javascript:void(0);" ng-click="cc.remove(card)">
+                                <i class="fa fa-recycle fa-2x"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="item" ng-if="card.editable">
+                        <div class="item-head">
+                            <div class="title">EDIT</div>
+                        </div>
+                        <div class="item-body">
+                            <form name="{{'forms.card' + card.id}}">
+                                <input type="text"
+                                       class="form-control"
+                                       placeholder="Input title"
+                                       ng-model="card.title"
+                                       ng-maxlength="50"
+                                       required />
+                                <input type="text"
+                                       class="form-control"
+                                       placeholder="Input some text"
+                                       ng-model="card.text"
+                                       ng-maxlength="500"
+                                       required />
+                            </form>
+                        </div>
+                        <div class="icons">
+                            <a href="javascript:void(0);" ng-click="cc.applyEdit(card)">
+                                <i class="fa fa-check fa-2x"></i>
+                            </a>
+                            <a href="javascript:void(0);" ng-click="cc.rejectEdit(card)">
+                                <i class="fa fa-times fa-2x"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div ng-if="cc.cards.length == 0">
+                    <div class="item">
+                        <div class="item-body">
+                            <div class="title">THERE IS NOTHING TO SHOW!</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div ui-view></div>
+
+            </div>
+        </div>
+    </body>
+</html>
