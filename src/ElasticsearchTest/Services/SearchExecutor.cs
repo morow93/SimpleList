@@ -26,7 +26,7 @@ namespace ElasticsearchTest.Services
         public SearchExecutor()
         {
             var respDelete = _client.DeleteIndex(_indexName);
-            var respCreate = _client.CreateIndex(_indexName);
+            var resp = _client.CreateIndex(_indexName, IndexSettingsSelector());
         }
         
         public Boolean AddOrUpdateIndex(Card card)
@@ -41,10 +41,41 @@ namespace ElasticsearchTest.Services
                 _client.Search<Card>(
                     sd =>
                         sd.Query(q => q.SimpleQueryString(s => s.Query(query)
+                    )
+                )
+            );
+
+            //var resp =
+            //    _client.Search<Card>(
+            //        sd =>
+            //            sd.Query(q => q.QueryString(s => s.Fields(qf => qf.Field(sf => sf.Title)).Query(query).MinimumShouldMatch(MinimumShouldMatch.Percentage(100)))
+            //        )
+            //    );
+
+            //var resp = _client.Search<Card>(
+            //    body =>
+            //        body
+            //            .Index(_indexName)
+            //                .Query(
+            //                    q => q.Wildcard(qd => qd.Field(f => f.Title).Value(query.ToLower() + "*"))));
+
+            return resp.Documents.ToList();
+
+        }
+
+        private static Func<CreateIndexDescriptor, CreateIndexDescriptor> IndexSettingsSelector()
+        {
+            return ci => ci.Settings(ss => ss.Analysis(
+                a => a.Analyzers(fd => fd
+                        .Custom("index_raw", ca => ca
+                            .Tokenizer("standard")
+                            .Filters(new List<string>
+                            {
+                                "lowercase"
+                            }))                    
                         )
                     )
                 );
-            return resp.Documents.ToList();
         }
 
         public Boolean Remove(Int32 id)
